@@ -20,6 +20,7 @@ def load_model():
         st.info(f"Using device: {device}") # 使用デバイスを表示
         pipe = pipeline(
             "text-generation",
+            #"summarization",
             model=MODEL_NAME,
             model_kwargs={"torch_dtype": torch.bfloat16},
             device=device

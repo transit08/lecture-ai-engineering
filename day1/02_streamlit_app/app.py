@@ -32,7 +32,8 @@ def load_model():
         device = "cuda" if torch.cuda.is_available() else "cpu"
         st.info(f"Using device: {device}") # 使用デバイスを表示
         pipe = pipeline(
-            "text-generation",
+            #"text-generation",
+            "summarization",
             model=MODEL_NAME,
             model_kwargs={"torch_dtype": torch.bfloat16},
             device=device
@@ -46,8 +47,10 @@ def load_model():
 pipe = llm.load_model()
 
 # --- Streamlit アプリケーション ---
-st.title("🤖 Gemma 2 Chatbot with Feedback")
-st.write("Gemmaモデルを使用したチャットボットです。回答に対してフィードバックを行えます。")
+# st.title("🤖 Gemma 2 Chatbot with Feedback")
+# st.write("Gemmaモデルを使用したチャットボットです。回答に対してフィードバックを行えます。")
+st.title("🤖 gpt2 Chatbot with Feedback")
+st.write("gpt2モデルを使用したチャットボットです。回答に対してフィードバックを行えます。")
 st.markdown("---")
 
 # --- サイドバー ---
